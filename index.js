@@ -105,7 +105,7 @@ function getInput({ config } = {}) {
   }
 }
 
-function setActionOutput(releaseResponse, { body }) {
+function setActionOutput(releaseResponse, { body, resolvedVersion }) {
   const {
     data: {
       id: releaseId,
@@ -121,5 +121,6 @@ function setActionOutput(releaseResponse, { body }) {
   if (uploadUrl) core.setOutput('upload_url', uploadUrl)
   if (tagName) core.setOutput('tag_name', tagName)
   if (name) core.setOutput('name', name)
+  if (resolvedVersion) core.setOutput('resolvedVersion', resolvedVersion)
   core.setOutput('body', body)
 }
