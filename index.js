@@ -113,6 +113,7 @@ function setActionOutput(releaseResponse, { body }) {
       upload_url: uploadUrl,
       tag_name: tagName,
       name: name,
+      version: version,
     },
   } = releaseResponse
   if (releaseId && Number.isInteger(releaseId))
@@ -121,5 +122,6 @@ function setActionOutput(releaseResponse, { body }) {
   if (uploadUrl) core.setOutput('upload_url', uploadUrl)
   if (tagName) core.setOutput('tag_name', tagName)
   if (name) core.setOutput('name', name)
+  if (version) core.setOutput('version', version)
   core.setOutput('body', body)
 }
