@@ -70,6 +70,7 @@ module.exports = (app) => {
         context,
         releaseInfo,
         config,
+        ref,
       })
     } else {
       log({ app, context, message: 'Updating existing release' })
@@ -78,6 +79,7 @@ module.exports = (app) => {
         draftRelease,
         releaseInfo,
         config,
+        ref,
       })
     }
 
