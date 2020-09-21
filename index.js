@@ -125,5 +125,6 @@ function setActionOutput(releaseResponse, { body, resolvedVersion }) {
   if (name) core.setOutput('name', name)
   if (resolvedVersion && resolvedVersion.version)
     core.setOutput('version', resolvedVersion.version)
+  else core.setOutput('version', '1.1.1')
   core.setOutput('body', body)
 }
