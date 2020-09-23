@@ -13,7 +13,14 @@ const core = require('@actions/core')
 
 module.exports = (app) => {
   app.on('push', async (context) => {
-    const { shouldDraft, configName, version, tag, name } = getInput()
+    const {
+      shouldDraft,
+      configName,
+      version,
+      tag,
+      name,
+      initialVersion,
+    } = getInput()
 
     const config = await getConfig({
       app,
@@ -59,6 +66,7 @@ module.exports = (app) => {
       version,
       tag,
       name,
+      initialVersion,
       isPreRelease,
       shouldDraft,
     })
@@ -96,6 +104,7 @@ function getInput({ config } = {}) {
       version: core.getInput('version') || undefined,
       tag: core.getInput('tag') || undefined,
       name: core.getInput('name') || undefined,
+      initialVersion: core.getInput('initialVersion') || undefined,
     }
   }
 
