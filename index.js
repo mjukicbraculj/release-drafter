@@ -123,6 +123,7 @@ function setActionOutput(releaseResponse, { body, resolvedVersion }) {
   if (uploadUrl) core.setOutput('upload_url', uploadUrl)
   if (tagName) core.setOutput('tag_name', tagName)
   if (name) core.setOutput('name', name)
-  core.setOutput('version', '3.1.4')
+  if (resolvedVersion && resolvedVersion.version)
+    core.setOutput('version', resolvedVersion.version)
   core.setOutput('body', body)
 }
